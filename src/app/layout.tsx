@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   description:
     "Atendimento ágil e estratégico em Direito. Fale agora pelo WhatsApp e receba orientação imediata.",
   metadataBase: new URL("https://example.com"),
+  themeColor: "#111111",
   openGraph: {
     title: "Advogado Especialista | Defesa Rápida e Eficaz",
     description:
@@ -35,13 +36,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,19 +44,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> 
-        <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <Link href="#" className="flex items-center gap-2 text-foreground font-semibold">
+            <Link href="#" className="flex items-center gap-2 text-white font-semibold">
               <div className="w-8 h-8 rounded bg-[--primary]" />
               <span>Advocacia</span>
             </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm text-foreground/70">
-              <Link href="#areas" className="hover:text-foreground">Áreas</Link>
-              <Link href="#diferenciais" className="hover:text-foreground">Diferenciais</Link>
-              <Link href="#processo" className="hover:text-foreground">Como funciona</Link>
-              <Link href="#sobre" className="hover:text-foreground">Sobre</Link>
-              <Link href="#depoimentos" className="hover:text-foreground">Depoimentos</Link>
-              <Link href="#faq" className="hover:text-foreground">FAQ</Link>
+            <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
+              <Link href="#areas" className="hover:text-white">Áreas</Link>
+              <Link href="#diferenciais" className="hover:text-white">Diferenciais</Link>
+              <Link href="#processo" className="hover:text-white">Como funciona</Link>
+              <Link href="#sobre" className="hover:text-white">Sobre</Link>
+              <Link href="#depoimentos" className="hover:text-white">Depoimentos</Link>
+              <Link href="#faq" className="hover:text-white">FAQ</Link>
             </nav>
             <div className="flex items-center gap-2">
               <Button asChild className="bg-[--primary] text-[--primary-foreground] hover:brightness-95">
@@ -71,9 +65,9 @@ export default function RootLayout({
               <div className="md:hidden">
                 <Sheet>
                   <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-foreground"><Menu className="w-5 h-5" /></Button>
+                    <Button variant="ghost" size="icon" className="text-white"><Menu className="w-5 h-5" /></Button>
                   </SheetTrigger>
-                  <SheetContent side="right" className="bg-white text-foreground border-l border-border">
+                  <SheetContent side="right" className="bg-black text-white border-l border-border">
                     <div className="mt-8 flex flex-col gap-4 text-lg">
                       <Link href="#areas">Áreas</Link>
                       <Link href="#diferenciais">Diferenciais</Link>
